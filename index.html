@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Boss Rush</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    </style>
+  </head>
+  <body style="background: url('https://i.pinimg.com/originals/d3/a4/98/d3a498f8838f5046ba13cde9af643250.gif') center center / cover no-repeat fixed;">
+    <header>
+      <h2 id='header-text'>CREATE A HERO</h2>
+    </header>
+    
+   
+    <div class='big-container'>
+      
+      <div id='hero-damage'></div>
+      <div id='hero-health-added'></div>
+      <div id='enemy-damage'></div>
+      <div id='special-attack-graphic'>
+        <img src='./assets/lightningbolt.png'>
+      </div>
+      <div class="create-hero">
+        <form class="create-hero-form">
+            <label for="hero-name">Hero Name: </label>
+            <input type="text" name="hero-name" value=""><br><br>
+            <label for="melee-weapon">Melee Weapon: </label>
+            <select name="melee-weapon">
+                <option value="Axe">Axe</option>
+                <option value="Sword">Sword</option>
+                <option value="Mace">Mace</option>
+                <option value="Hammer">Hammer</option>
+                <option value="Club">Club</option>
+                <option value="Nunchucks">Nunchucks</option>
+            </select><br><br>
+            <label for="ranged-weapon">Ranged Weapon: </label>
+            <select name="ranged-weapon">
+                <option value="Long Bow">Long Bow</option>
+                <option value="Spear">Spear</option>
+                <option value="Ninja Star">Ninja Star</option>
+                <option value="Trident">Trident</option>
+                <option value="Dart gun">Dart gun</option>
+                <option value="Crossbow">Crossbow</option>
+            </select><br><br>
+            <label for="Avatar">Appearance </label>
+            <select id='Avatar-set' name="Avatar">
+                <option value='./assets/Soldier.png'>Soldier</option>
+                <option value="./assets/hero2.png">Sorcerer</option>
+                <option value="./assets/hero3.png">Fighter</option>
+                <option value="./assets/hero4.png">Rogue</option>
+                <option value="./assets/hero5.png">Wizard</option>
+                <option value="./assets/hero6.png">Ranger</option>
+                <option value="./assets/hero7.png">Druid</option>
+                <option value="./assets/hero8.png">Warlock</option>
+                <option value="./assets/hero9.png">Paladin</option>
+                <option value="./assets/hero1.png">Cat</option>
+              </select>
+            <img id= 'hero-avatar-image' src ='./assets/Soldier.png'><br><br>
+            <button type="submit">Submit</button>
+            
+        </form>
+      </div>
+
+      <div class='battle-container'>
+
+      </div>
+
+      <div class="sidebar">
+          <h2>HIGH SCORES</h2>
+          <table class=high-scores></table>
+          <br>
+          <h2>CURRENT SCORE</h2>
+          <p class="current-score"></p>
+      </div>
+
+      <div class='right-bar'>
+        <div class='rightbar-container'>
+          <h2>ENEMIES DEFEATED</h2>
+          <table class="enemies-defeated">
+
+          </table>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p id='footer-text'>BOSS RUSH By Dustin Rothschild and David Wisecarver</p>
+    </footer>
+
+    <script src="./src/index.js"></script>
+  </body>
+</html> 

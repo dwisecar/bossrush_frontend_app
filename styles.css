@@ -1,0 +1,382 @@
+body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background: url('https://i.pinimg.com/originals/d3/a4/98/d3a498f8838f5046ba13cde9af643250.gif') no-repeat center center fixed;
+    font-family: 'Press Start 2P';
+    color:white;
+    background-color: black;
+  }
+
+
+  .truncate {
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .truncate-table {
+    width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  header {
+    background-color:rgb(0, 47, 175);
+    margin: 0 auto;
+    height: 50px;
+    margin-bottom: .8em;
+    text-align: center;
+    border-bottom-width: 7px;
+    border-bottom-style: solid;
+    position: sticky;
+    top: 0;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  
+  header h2 {
+    margin: 0;
+  }
+
+  .big-container {
+    display: flex;
+    flex-direction: column;
+    overflow-x: scroll, hidden;
+
+  }
+
+  .battle-container{
+    margin: 0 auto; 
+  }
+  
+  div.enemy-card, div.hero-card {
+    margin-bottom: 20px;
+    height: 300px;
+    width: 250px;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    border-style: solid;
+    border-width: 7px;
+  }
+
+  div.enemy-card.shake, div.hero-card.shake {
+    animation: shake 0.5s;
+    animation-iteration-count: 1;
+  }
+
+  div.enemy-card {
+    background: url('./assets/backgrounds/enemy_card.png') center;
+  }
+
+  div.hero-card {
+    background-color: rgb(0, 47, 175);
+  }
+
+  div.hero-card > img, div.enemy-card > img {
+    height: 100px;
+    width: 100px;
+  }
+
+  form {
+    background-color: rgb(0, 47, 175);
+    width: 400px;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.308);
+    padding: 30px;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 7px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  li {
+    font-size: 1.05em;
+    list-style: none;
+    padding-right: 20px;
+  }
+
+  .sidebar, .right-bar {
+      width: 400px;
+      background-color: rgba(0, 47, 175, 0.6);  
+      padding: 5px;
+      position: fixed;
+      top: 70px;
+      margin-left: 1%;
+      height: 80vh;
+      border-style: solid;
+      border-width: 7px;
+      text-align: center;
+      border-radius: 10px;
+      color: white;
+  }
+
+  .right-bar {
+    right: 1%;
+  }
+
+  .create-hero {
+    padding: 5px, 20px
+  }
+
+  .enemies-defeated {
+    font-size: 9pt;
+    text-align: left;
+  }
+
+  .high-scores {
+    text-align: left;
+    padding: 15px;
+  }
+
+  .td-score {
+    text-align: right;
+  }
+
+  .high-scores-image {
+    height: 32px;
+    width: 32px;
+  }
+
+  .current-score {
+    font-size: 16pt;
+  }
+
+  .rightbar-container {
+    overflow-y: auto;
+    height: 80vh;
+  }
+
+  .sidebar-enemy-image {
+    max-height: 32px;
+    max-width: 32px;
+  }
+  
+  button {
+    font-family: 'Press Start 2P';
+    font-stretch: semi-condensed;
+    font-size: .75em;
+    block-size: 30px;
+    color: #fff;
+    background-color: rgb(126, 82, 0);
+    border-radius: 5px;
+    margin: .2em;
+  }
+
+  button:hover {
+    background-color: rgb(184, 135, 1);
+  }
+
+  button:disabled, button[disabled]{
+    background-color: rgba(50, 57, 88, 0.322);
+    color: rgb(156, 152, 152);
+  }
+
+  #special-attack-button {
+    background-color: green;
+  }
+
+  button#special-attack-button:hover {
+    background-color: rgb(1, 172, 1);
+  }
+  
+  
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+}
+
+#special-attack-graphic {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: 47%; /* Divide value of min-width by 2 */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 5; /* Add a z-index if needed */
+}
+
+#special-attack-graphic.show-effect {
+  visibility: visible;
+  -webkit-animation: effectin 1.0s, effectout 0.5s 1;
+  animation: effectin 1.0s, effectout 0.5s 1s;
+}
+
+#special-attack-graphic > img {
+  height: 150px;
+  width: 100px;
+}
+
+@-webkit-keyframes effectin {
+  from {top: 23%; opacity: 1;}
+  to {top: 60%; opacity: 1;}
+}
+
+@keyframes effectin {
+  from {top: 23%; opacity: 0;}
+  to {top: 60%; opacity: 1;}
+}
+
+@-webkit-keyframes effectout {
+  from {top: 60%; opacity: 1;}
+  to {top: 60%; opacity: 0;}
+}
+
+@keyframes effectout {
+  from {top: 60%; opacity: 1;}
+  to {top: 60%; opacity: 0;}
+}
+
+#hero-health-added {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: 43%; /* Divide value of min-width by 2 */
+  background-color: rgba(51, 51, 51, 0); /* Black background color */
+  color: rgb(0, 255, 34); /* White text color */
+  text-align: center; /* Centered text */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 5; /* Add a z-index if needed */
+  font-size: 32pt;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+#hero-health-added.show {
+  visibility: visible;
+  -webkit-animation: healthfadein 0.7s, healthfadeout 0.3s 1s;
+  animation: healthfadein 0.7s, healthfadeout 0.4s 1s;
+}
+
+/* Animations to fade the damage in and out */
+@-webkit-keyframes healthfadein {
+  from {top: 50%; opacity: 1;}
+  to {top: 23%; opacity: 1;}
+}
+
+@keyframes healthfadein {
+  from {top: 50%; opacity: 1;}
+  to {top: 23%; opacity: 1;}
+}
+
+@-webkit-keyframes healthfadeout {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+
+@keyframes healthfadeout {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+  
+/* The hero-damage - position it at the bottom and in the middle of the screen */
+#hero-damage, #enemy-damage {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: rgba(51, 51, 51, 0); /* Black background color */
+  color: rgb(255, 0, 0); /* White text color */
+  text-align: center; /* Centered text */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 5; /* Add a z-index if needed */
+  font-size: 32pt;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+#hero-damage {
+  left: 50%; /* Center the hero-damage */
+  top: 23%; 
+}
+
+#enemy-damage {
+  left: 50%; 
+  top: 58%; 
+}
+
+/* Show the hero-damage when clicking on a button (class added with JavaScript) */
+#hero-damage.show{
+  visibility: visible; /* Show the hero-damage */
+  /* Add animation: Take 0.5 seconds to fade in and out the hero-damage.
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 1;
+  animation: fadein 0.5s, fadeout 0.5s 1s;
+}
+
+#enemy-damage.show {
+  visibility: visible; 
+  -webkit-animation: efadein 0.5s, efadeout 0.5s 1;
+  animation: efadein 0.5s, efadeout 0.5s 1s;
+}
+
+/* Animations to fade the damage in and out */
+@-webkit-keyframes fadein {
+  from {top: 30%; opacity: 0;}
+  to {top: 23%; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {top: 30%; opacity: 0;}
+  to {top: 23%; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {top: 23%; opacity: 1;}
+  to {top: 20%; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {top: 23%; opacity: 1;}
+  to {top: 20%; opacity: 0;}
+}
+
+/* Animations to fade the damage in and out */
+@-webkit-keyframes efadein {
+  from {top: 65%; opacity: 0;}
+  to {top: 58%; opacity: 1;}
+}
+
+@keyframes efadein {
+  from {top: 65%; opacity: 0;}
+  to {top: 58%; opacity: 1;}
+}
+
+@-webkit-keyframes efadeout {
+  from {top: 58%; opacity: 1;}
+  to {top: 53%; opacity: 0;}
+}
+
+@keyframes efadeout {
+  from {top: 58%; opacity: 1;}
+  to {top: 53%; opacity: 0;}
+}
+
+#hero-avatar-image{
+  height: 75px;
+  width: 75px;
+}
+
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
