@@ -13,14 +13,14 @@ let backgroundCounter = 1
 
 // gets users with highest scores
 function fetchHighScores(){
-    fetch('http://localhost:3000/high_scores')
+    fetch('https://bossrush-backend.herokuapp.com/high_scores')
     .then(res => res.json())
     .then(heros => heros.forEach(hero => addHighScore(hero)))
 }
 
 //on form submission, posts new hero to database and calls fetch enemy
 function postHero(hero){
-    fetch('http://localhost:3000/heros', {
+    fetch('https://bossrush-backend.herokuapp.com/heros', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json',
@@ -42,7 +42,7 @@ function fetchEnemy() {
         enemy.remove()
     }   
 
-    fetch('http://localhost:3000/enemies', {
+    fetch('https://bossrush-backend.herokuapp.com/enemies', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json',
@@ -62,7 +62,7 @@ function postBattle(){
     const heroId = parseInt(hero.dataset.id)
     const enemy = document.querySelector('.enemy-card') 
     const enemyId = parseInt(enemy.dataset.id)
-    fetch('http://localhost:3000/battles', {
+    fetch('https://bossrush-backend.herokuapp.com/battles', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json',
@@ -81,7 +81,7 @@ function updateHeroScore(){
     const heroCard = document.querySelector('.hero-card')
     const heroId = parseInt(heroCard.dataset.id)
     const score = document.querySelector('.current-score')
-    fetch(`http://localhost:3000/heros/${heroId}`, {
+    fetch(`https://bossrush-backend.herokuapp.com/heros/${heroId}`, {
         method: 'PATCH',
         headers: {
             'Content-type': 'application/json',
@@ -101,7 +101,7 @@ function updateEnemyName(){
     const enemyId = parseInt(enemyCard.dataset.id)
     const enemyName = document.getElementById('enemy-name')
     enemyName.innerText += ' Defeated'
-    fetch(`http://localhost:3000/enemies/${enemyId}`, {
+    fetch(`https://bossrush-backend.herokuapp.com/enemies/${enemyId}`, {
         method: 'PATCH',
         headers: {
             'Content-type': 'application/json',
@@ -121,7 +121,7 @@ function fetchBattleWon(){
     const heroCard = document.querySelector('.hero-card')
     const heroId = parseInt(heroCard.dataset.id)
     //fetch last battle hero won
-    fetch(`http://localhost:3000/heros/${heroId}`)
+    fetch(`https://bossrush-backend.herokuapp.com/heros/${heroId}`)
     .then(res => res.json())
     .then(battle => updateDefeatedEnemiesList(battle))
 }
